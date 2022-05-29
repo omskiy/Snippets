@@ -1,17 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-        <div class="row">
-            <div class="col">
-                <p>На данной страницы будут отображаться все созданные сниппеты.</p>
-                <p>Пока тут пусто, скоро мы это исправим!</p>
-                <hr>
+
+        <div class="col">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Дата создания</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for snippet in snippets %}
+                <tr>
+                     <td scope="row">{{snippet.id}}</td>
+                     <td><a href="/snippets/1">{{snippet.name}}</a></td>
+                     <td>{{snippet.creation_date}}</td>
+                 </tr>
+
+                {% endfor %}
+
+                </tbody>
+             </table>
+            <div align="right">
+             <i style="color: gray;">Всего сниппетов: </i>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-4 offset-2">
-                Список сниппетов:
-            </div>
-        </div>
 {% endblock %}
