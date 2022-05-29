@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-        <div class="col">
+<div class="row">
+   <div class="col">
             <table class="table table-striped">
                 <thead class="thead-dark">
                 <tr>
@@ -15,7 +15,7 @@
                 {% for snippet in snippets %}
                 <tr>
                      <td scope="row">{{snippet.id}}</td>
-                     <td><a href="/snippets/1">{{snippet.name}}</a></td>
+                     <td><a href="{% url 'snippet-page' id=snippet.id %}">{{snippet.name}}</a></td>
                      <td>{{snippet.creation_date}}</td>
                  </tr>
 
@@ -27,5 +27,8 @@
              <i style="color: gray;">Всего сниппетов: </i>
             </div>
         </div>
+
+</div>
+
 
 {% endblock %}
